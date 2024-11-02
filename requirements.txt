@@ -1,0 +1,8 @@
+langchain
+langchain_community
+crewai
+crewai_tools
+streamlit
+ollama
+google-generativeai
+python-dotenv

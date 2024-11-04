@@ -4,13 +4,16 @@ load_dotenv()
 import os
 import google.generativeai as genai
 genai.configure(api_key=os.getenv('GOOGLE_API_KEY'))
+llm=genai.GenerativeModel("gemini-1.5-flash")
+# print(llm.generate_content("what is an LLM?"))
+
 
 tool = YoutubeChannelSearchTool(youtube_channel_handle='@RenaissancePeriodization',
     config=dict(
         llm=dict(
-            provider="ollama",
+            provider="google",
             config=dict(
-                model="llama3.1",
+                model="gemini-1.5-flash",
             ),
         ),
         embedder=dict(
@@ -22,5 +25,3 @@ tool = YoutubeChannelSearchTool(youtube_channel_handle='@RenaissancePeriodizatio
         ),
     )
 )
-
-# print(tool.run("squats hurt my knees ?"))
